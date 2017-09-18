@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Instructor Survey</title>
+		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+		<link href="styles.css" type="text/css" rel="stylesheet">
+		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+		<script type="text/javascript" src="handle_instructor.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<section id="s1">
+				<article>
+					<h1 style="text-align: center;"> Strategic Resource Use Research Study Preparation Teacher Survey</h1>
+					<p>
+						We are excited to work with you to prepare for the upcoming research study with the Strategic Resource Use intervention! In preparation for that, we'd like you to fill out this short 10-15 min survey about your class. We need this information to populate the important components of the online exercises for students in the control and treatment conditions.
+					</p>
+					<p> <b> Please type your name, school, and date below so that we can tailor the intervention specifically to your students:</b></p>
+				</article>
+				<div>
+					<label for="instructor_name" class="title">Name:</label>
+					<input type="text" name="instructor_name">
+				</div>
+				<div>
+					<label for="school_name" class="title">School:</label>
+					<input type="text" name="school_name">
+				</div>
+				<div>
+					<label for="study_semester" class="title">Study Semester:</label>
+					<input type="text" name="study_semester">
+				</div>
+				<div>
+					<label for="date" class="title">Date:</label>
+					<input type="date" name="date">
+				</div>
+				<button id="n1" style="display:block;margin:auto">
+					&gt;&gt;
+				</button>
+			</section>
+			<section id="s2" class="hidden">
+				<article>
+					<h3> What is the title of your class?</h3>
+					<div>
+						For example, STAT 250, PSYCH 200, etc. 
+					</div>
+					<input type="text" name="class_title">
+					<hr />
+					<h3> What subject are you teaching?</h3>
+					<p>
+						For example, Computer Science, Philosophy, Education, etc. 
+					</p>
+					<input type="text" name="class_suject">
+					<hr />
+					<h3> Excluding you, how many other instructors teach this class at the same time?</h3>
+					<div class="block_wrap">
+						<input type="radio" name="num_instructor" value="None">None
+					</div>
+					<div class="block_wrap">
+						<input type="radio" name="num_instructor" value="1">1
+					</div>
+					<div class="block_wrap">
+						<input type="radio" name="num_instructor" value="2">2
+					</div>
+					<div class="block_wrap">
+						<input type="radio" name="num_instructor" value="3">3
+					</div>
+					<div class="block_wrap">
+						<input type="radio" name="num_instructor" value="4">4
+					</div>
+					<div class="block_wrap">
+						<input type="radio" name="num_instructor" value="5">5
+					</div>
+					<div class="block_wrap">
+						<input type="radio" name="num_instructor" value="6">6
+					</div>
+					<div class="block_wrap">
+						<input type="radio" name="num_instructor" value="7">7
+					</div>
+					<div class="block_wrap">
+						<input type="radio" name="num_instructor" value="8">8
+					</div>
+					<div class="control_wrap">
+						<button id="b1">
+							&lt;&lt;
+						</button>
+						<button id="n2">
+							&gt;&gt;
+						</button>
+					</div>			
+				</article>
+			</section>
+			<section id="s3" class="hidden">
+				<article>
+					<h3> Do all the instructors who teach this class use the same standardized syllabus?</h3>
+					<div class="block_wrap">
+						<input type="radio" name="same_syllabus" value="Yes">Yes
+					</div>
+					<div class="block_wrap">
+						<input type="radio" name="same_syllabus" value="No">No
+					</div>
+					<h3> To help your students prepare in advance for their class exams, we plan to send a survey to students before each graded exam in your class.</h3>
+					<h3> How many graded exams do you have in this class?</h3>
+					<p> Please enter a numerical value in the box below. E.g: 3</p>
+					<input type="text" name="num_exams">
+					<div class="control_wrap">
+						<button id="b2">
+							&lt;&lt;
+						</button>
+						<button id="n3">
+							&gt;&gt;
+						</button>
+					</div>	
+				</article>
+			</section>
+			<section id="s4" class="hidden"><!-- Section to obtain info for each exam, dynamically-->
+				<article>
+					<h3> Before each exam, your students will receive a reminder about when each of your class exams will take place.</h3>
+					<p> For example, "your Exam 1 is coming up on Tuesday, May 5th, 2017."</p>
+					<br />
+					<h3> In the boxes below, please tell us: </h3>
+					<ol>
+						<li style="font-weight: bold"> <b> <i> What </i> each of your exam is called </b> (e.g., "Exam 3" or "Final Exam"), </li>
+						<li style="font-weight: bold"> <b> <i> When </i> each exam is scheduled </b> (e.g., "Thursday, July 2nd, 2017").</li>
+					</ol>
+					<h3> TODO: Dynamically add input textboxes according to the number of exams.</h3>
+					<!-- TODO: Insert questions to ask for exam name and dates, dynamically -->
+				</article>
+				<hr />
+				<article>
+					<h3> We would like to send exam reminders that instructors of [TODO: COURSE_CODE] would typically send to students before each exam.
+					</h3>
+					<p>
+						In some classes, for example, the instructors tend to say: "Your Exam 1 is coming up on Thursday, May 5th, 2017. We would like to remind you about your upcoming exam so that you can start preparing for it."
+					</p>
+					<h3>
+						What would a typical exam reminder in your class look like? Please describe it in the box below as if you were making the announcement to your class.
+					</h3>
+					<textarea name="sample_reminder" style="width:500px;height:80px;display:block;margin:20px auto"></textarea>
+					<div class="control_wrap">
+						<button id="b3">
+							&lt;&lt;
+						</button>
+						<button id="n4">
+							&gt;&gt;
+						</button>
+					</div>	
+				</article>
+			</section>
+			<section id="s5" class="hidden">
+				<h1 style="text-align: center"> More Content Coming... </h1>
+			</section>
+		</div><!-- End of Container Div -->
+	</body>
+</html>

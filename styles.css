@@ -1,0 +1,76 @@
+body {
+	background-color: #F4F4F4;
+	font-size:110%;
+	width: 960px;
+	margin: 20px auto;
+	font-family: 'Source Sans Pro', sans-serif;
+	color:#2e2d29;
+	padding: 10px;
+}
+header, footer{
+	background-color: #544948;
+	color:#ffffff;
+	font-family: 'Source Sans Pro', sans-serif;
+	padding: 2px;
+}
+div{
+	border-bottom: 1px solid #efefef;
+	margin: 10px;
+	padding-bottom: 10px;
+	width: 960px;
+}
+div[class="block_wrap"]{
+	display: block;
+}
+div[class="control_wrap"]{
+	display: block;
+	margin: auto;
+	width: 190px;
+}
+.title{
+	float: left;
+	width: 150px;
+	text-align: right;
+	padding-right: 10px;
+}
+.container{
+	overflow: auto;
+	height: 100%;
+	padding: 10px;
+}
+.hidden{
+	display: none;
+}
+input, textarea{
+	font-size: 110%;
+	color:#5a5854;
+	background-color: #F9F6EF;
+	border:1px solid #b6b1a9;
+	border-radius: 5px;
+	padding: 5px 5px 5px 10px;
+	background-repeat: no-repeat;
+	background-position: 8px 8px
+	display: block;
+	margin-bottom: 20px;
+}
+input:focus, input:hover, textarea:hover, textarea:focus{
+	background-color: #ffffff;
+	border: 1px solid #0055b7;
+}
+button{
+	font-size:110%;
+	background-color:#8c1515;
+	color:#ffffff;
+	padding: 8px 30px;
+	text-shadow: 0px 1px 1px #ffffff;
+	border-bottom: 2px solid #2e2d29;
+	border-radius: 5px;
+}
+button:hover, button:active{
+	background-color:#002145;
+	border: 1px solid #0055b7;
+	border-top: 2px solid #2e2d29;
+}
+input[type="radio"]:hover{
+	background-color: #F9F6EF;
+}
