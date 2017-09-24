@@ -9,10 +9,11 @@ $(window).load(function(){
 	var n2 = document.getElementById("n2");
 	var n3 = document.getElementById("n3");
 	var n4 = document.getElementById("n4");
+	var n5 = document.getElementById("n5");
 	var b1 = document.getElementById("b1");
 	var b2 = document.getElementById("b2");
 	var b3 = document.getElementById("b3");
-	var b4 = document.getElementById("b3");
+	var b4 = document.getElementById("b4");
 	n1.onclick = function(){
 		s1.className = "hidden";
 		s2.className = "normal";
