@@ -21,6 +21,8 @@ div{
 }
 div[class="block_wrap"]{
 	display: block;
+	margin: 0px;
+	padding-bottom: 0px;
 }
 div[class="control_wrap"]{
 	display: block;
