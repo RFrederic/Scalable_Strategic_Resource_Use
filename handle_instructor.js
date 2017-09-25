@@ -5,6 +5,7 @@ $(window).load(function(){
 	var s4 = document.getElementById("s4");
 	var s5 = document.getElementById("s5");
 	var s6 = document.getElementById("s6");
+	var s7 = document.getElementById("s7");
 	var sl = document.getElementById("sl");
 	var n1 = document.getElementById("n1");
 	var n2 = document.getElementById("n2");
@@ -12,11 +13,13 @@ $(window).load(function(){
 	var n4 = document.getElementById("n4");
 	var n5 = document.getElementById("n5");
 	var n6 = document.getElementById("n6");
+	var n7 = document.getElementById("n7");
 	var b1 = document.getElementById("b1");
 	var b2 = document.getElementById("b2");
 	var b3 = document.getElementById("b3");
 	var b4 = document.getElementById("b4");
 	var b5 = document.getElementById("b5");
+	var b6 = document.getElementById("b6");
 	n1.onclick = function(){
 		s1.className = "hidden";
 		s2.className = "normal";
@@ -39,6 +42,10 @@ $(window).load(function(){
 	}
 	n6.onclick = function(){
 		s6.className = "hidden";
+		s7.className = "normal";
+	}
+	n7.onclick = function(){
+		s7.className = "hidden";
 		sl.className = "normal";
 	}
 	b1.onclick = function(){
@@ -60,5 +67,9 @@ $(window).load(function(){
 	b5.onclick = function(){
 		s6.className = "hidden";
 		s5.className = "normal";
+	}
+	b6.onclick = function(){
+		s7.className = "hidden";
+		s6.className = "normal";
 	}
 })
