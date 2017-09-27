@@ -55,31 +55,31 @@
 					<hr />
 					<h3> Excluding you, how many other instructors teach this class at the same time?</h3>
 					<div class="block_wrap">
-						<input type="radio" name="num_instructor" value="None">None
+						<input type="radio" name="num_instructors" value="None">None
 					</div>
 					<div class="block_wrap">
-						<input type="radio" name="num_instructor" value="1">1
+						<input type="radio" name="num_instructors" value="1">1
 					</div>
 					<div class="block_wrap">
-						<input type="radio" name="num_instructor" value="2">2
+						<input type="radio" name="num_instructors" value="2">2
 					</div>
 					<div class="block_wrap">
-						<input type="radio" name="num_instructor" value="3">3
+						<input type="radio" name="num_instructors" value="3">3
 					</div>
 					<div class="block_wrap">
-						<input type="radio" name="num_instructor" value="4">4
+						<input type="radio" name="num_instructors" value="4">4
 					</div>
 					<div class="block_wrap">
-						<input type="radio" name="num_instructor" value="5">5
+						<input type="radio" name="num_instructors" value="5">5
 					</div>
 					<div class="block_wrap">
-						<input type="radio" name="num_instructor" value="6">6
+						<input type="radio" name="num_instructors" value="6">6
 					</div>
 					<div class="block_wrap">
-						<input type="radio" name="num_instructor" value="7">7
+						<input type="radio" name="num_instructors" value="7">7
 					</div>
 					<div class="block_wrap">
-						<input type="radio" name="num_instructor" value="8">8
+						<input type="radio" name="num_instructors" value="8">8
 					</div>
 					<div class="control_wrap">
 						<button id="b1" class="previous_button">
@@ -93,12 +93,14 @@
 			</section>
 			<section id="s3">
 				<article>
-					<h3> Do all the instructors who teach this class use the same standardized syllabus?</h3>
-					<div class="block_wrap">
-						<input type="radio" name="same_syllabus" value="Yes">Yes
-					</div>
-					<div class="block_wrap">
-						<input type="radio" name="same_syllabus" value="No">No
+					<div id="syllabus_check">
+						<h3> Do all the instructors who teach this class use the same standardized syllabus?</h3>
+						<div class="block_wrap">
+							<input type="radio" name="same_syllabus" value="Yes">Yes
+						</div>
+						<div class="block_wrap">
+							<input type="radio" name="same_syllabus" value="No">No
+						</div>
 					</div>
 					<h3> To help your students prepare in advance for their class exams, we plan to send a survey to students before each graded exam in your class.</h3>
 					<h3> How many graded exams do you have in this class?</h3>
@@ -122,10 +124,9 @@
 					<h3> In the boxes below, please tell us: </h3>
 					<ol>
 						<li style="font-weight: bold"> <b> <i> What </i> each of your exam is called </b> (e.g., "Exam 3" or "Final Exam"), </li>
-						<li style="font-weight: bold"> <b> <i> When </i> each exam is scheduled </b> (e.g., "Thursday, July 2nd, 2017").</li>
+						<li style="font-weight: bold"> <b> <i> When </i> each exam is scheduled</b>.</li>
 					</ol>
-					<h3> TODO: Dynamically add input textboxes according to the number of exams.</h3>
-					<!-- TODO: Insert questions to ask for exam name and dates, dynamically -->
+					<table id="exam_table"></table><!-- table content to be generated dynamically-->
 				</article>
 				<hr />
 				<article>

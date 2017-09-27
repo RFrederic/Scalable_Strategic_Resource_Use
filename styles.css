@@ -15,7 +15,6 @@ header, footer{
 }
 div{
 	border-bottom: 1px solid #efefef;
-	margin: 10px;
 	padding-bottom: 10px;
 	width: 960px;
 }
@@ -41,6 +40,26 @@ div[class="total_wrap"]{
 	border-bottom: 1px solid #efefef;
 	padding-top: 5px;
 	border-top: 1px solid #808080;
+}
+table{
+	width: 75%;
+}
+th,td{
+	padding: 7px 10px 10px 10px;
+}
+th{
+	text-transform: uppercase;
+	letter-spacing: 0.2em;
+	font-size: 90%;
+	border-bottom: 2px solid #111111;
+	border-top: 1px solid #999;
+	text-align: left;
+}
+tr{
+	border-top: 1px solid #999;
+}
+tr:hover{
+	background-color: #c3e6e5;
 }
 .title{
 	float: left;
@@ -77,6 +96,9 @@ input, textarea{
 input:focus, input:hover, textarea:hover, textarea:focus{
 	background-color: #ffffff;
 	border: 1px solid #0055b7;
+}
+input[type="date"]{
+	margin-bottom: 0px;
 }
 input[type="file"]{
 	width: 220px;
