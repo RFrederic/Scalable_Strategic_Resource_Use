@@ -35,11 +35,11 @@
 					<label for="date" class="title">Date:</label>
 					<input type="date" name="date">
 				</div>
-				<button id="n1" style="display:block;margin:auto">
+				<button class="next_button" id="n1" style="display:block;margin:auto">
 					&gt;&gt;
 				</button>
 			</section>
-			<section id="s2" class="hidden">
+			<section id="s2">
 				<article>
 					<h3> What is the title of your class?</h3>
 					<p>
@@ -82,16 +82,16 @@
 						<input type="radio" name="num_instructor" value="8">8
 					</div>
 					<div class="control_wrap">
-						<button id="b1">
+						<button id="b1" class="previous_button">
 							&lt;&lt;
 						</button>
-						<button id="n2">
+						<button id="n2" class="next_button">
 							&gt;&gt;
 						</button>
 					</div>			
 				</article>
 			</section>
-			<section id="s3" class="hidden">
+			<section id="s3">
 				<article>
 					<h3> Do all the instructors who teach this class use the same standardized syllabus?</h3>
 					<div class="block_wrap">
@@ -105,16 +105,16 @@
 					<p> Please enter a numerical value in the box below. E.g: 3</p>
 					<input type="text" name="num_exams">
 					<div class="control_wrap">
-						<button id="b2">
+						<button id="b2" class="previous_button">
 							&lt;&lt;
 						</button>
-						<button id="n3">
+						<button id="n3" class="next_button">
 							&gt;&gt;
 						</button>
 					</div>	
 				</article>
 			</section>
-			<section id="s4" class="hidden"><!-- Section to obtain info for each exam, dynamically-->
+			<section id="s4"><!-- Section to obtain info for each exam, dynamically-->
 				<article>
 					<h3> Before each exam, your students will receive a reminder about when each of your class exams will take place.</h3>
 					<p> For example, "your Exam 1 is coming up on Tuesday, May 5th, 2017."</p>
@@ -139,16 +139,16 @@
 					</h3>
 					<textarea name="sample_reminder" style="width:500px;height:80px;display:block;margin:20px auto"></textarea>
 					<div class="control_wrap">
-						<button id="b3">
+						<button id="b3" class="previous_button">
 							&lt;&lt;
 						</button>
-						<button id="n4">
+						<button id="n4" class="next_button">
 							&gt;&gt;
 						</button>
 					</div>	
 				</article>
 			</section>
-			<section id="s5" class="hidden">
+			<section id="s5">
 				<article>
 					<h2 style="text-align: center">&ldquo;Resources for Learning&rdquo; List</h2>
 					<h3>What are all the resources that students can use for learning in your class?</h3>
@@ -178,16 +178,16 @@
 					<h3>In the boxes below, please write down as many of the resources available to you that you can think of! The ideal should be between 10 to 16 resources.</h3>
 					<h1> TODO: Add block to collect available study resources.</h1>
 					<div class="control_wrap">
-						<button id="b4">
+						<button id="b4" class="previous_button">
 							&lt;&lt;
 						</button>
-						<button id="n5">
+						<button id="n5" class="next_button">
 							&gt;&gt;
 						</button>
 					</div>
 				</article>
 			</section>
-			<section id="s6" class="hidden">
+			<section id="s6">
 				<article>
 					<h3>Here is an example from a college statistics class.</h3>
 					<p>&ldquo;Doing practice exam questions will allow me to practice on problems similar to what I will encounter on my exam. While doing the problems, I will look out for how I am expected to apply my knowledge. This will give me an idea of what material I should review in the lecture notes and how to apply the formulas I learn.&rdquo;</p>
@@ -200,32 +200,32 @@
 						<input type="radio" name="model_example" value="No">No, please use the example above.
 					</div>
 					<div class="control_wrap">
-						<button id="b5">
+						<button id="b5" class="previous_button">
 							&lt;&lt;
 						</button>
-						<button id="n6">
+						<button id="n6" class="next_button">
 							&gt;&gt;
 						</button>
 					</div>
 				</article>
 			</section>
-			<section id="s7" class="hidden">
+			<section id="s7">
 				<article>
 					<h3>In the box below, please write your own model example that's relevant to the students in your class.</h3>
 					<p>Statistics class example:<br />
 					&ldquo;Doing practice exam questions will allow me to practice on problems similar to what I will encounter on my exam. While doing the problems, I will look out for how I am expected to apply my knowledge. This will give me an idea of what material I should review in the lecture notes and how to apply the formulas I learn.&rdquo;</p>
 					<textarea name="sample_example" style="width:500px;height:80px;display:block;margin:20px auto"></textarea>
 					<div class="control_wrap">
-						<button id="b6">
+						<button id="b6" class="previous_button">
 							&lt;&lt;
 						</button>
-						<button id="n7">
+						<button id="n7" class="next_button">
 							&gt;&gt;
 						</button>
 					</div>
 				</article>
 			</section>
-			<section id="s8" class="hidden">
+			<section id="s8">
 				<article>
 					<h1 style="text-align: center"><u>Description of Their Study Plans</u></h1>
 					<h3>Students will be asked to <u>plan out how they will study</u> for their exams. This includes <u>when</u>, <u>where</u>, and <u>how</u> they will study.</h3>
@@ -239,16 +239,16 @@
 						<input type="radio" name="model_example" value="No">No, please use the example above.
 					</div>
 					<div class="control_wrap">
-						<button id="b7">
+						<button id="b7" class="previous_button">
 							&lt;&lt;
 						</button>
-						<button id="n8">
+						<button id="n8" class="next_button">
 							&gt;&gt;
 						</button>
 					</div>
 				</article>
 			</section>
-			<section id="s9" class="hidden">
+			<section id="s9">
 				<article>
 					<h3>In the boxes below, please describe a few examples that are relevant to your class. </h3>
 					<h3>The examples should ideally show:
@@ -261,32 +261,32 @@
 					<p>Planning example:<br />Wednesday, 3/18, 3pm - 5pm, Library: Work on practice exam questions from 1 past exam.<br />Friday 3/20, 1pm - 3pm, Home: Read lecture notes for 2 topics.</p>
 					<h3>TODO: add block to collect instructor-generated example study plans.</h3>
 					<div class="control_wrap">
-						<button id="b8">
+						<button id="b8" class="previous_button">
 							&lt;&lt;
 						</button>
-						<button id="n9">
+						<button id="n9" class="next_button">
 							&gt;&gt;
 						</button>
 					</div>
 				</article>
 			</section>
-			<section id="s10" class="hidden">
+			<section id="s10">
 				<article>
 					<h3>To incentivize students to participate in these online surveys, instructors often offer them extra credit/ bonus points for the class. This really boosts participation rates and student engagement in the surveys. </h3>
 					<h3>Are you willing to offer some form of incentive (e.g., extra credit/ bonus points) for your students to take part in these surveys? Please write yes or no here and, if yes, what the students can expect for participating in each survey.</h3>
 					<p>For example: &ldquo;Yes, 2 extra homework credit points per survey.&rdquo; or &ldquo;Yes, 2 bonus points per survey.&rdquo;</p>
 					<textarea name="incentive" style="width:500px;height:40px;display:block;margin:20px auto"></textarea>
 					<div class="control_wrap">
-						<button id="b9">
+						<button id="b9" class="previous_button">
 							&lt;&lt;
 						</button>
-						<button id="n10">
+						<button id="n10" class="next_button">
 							&gt;&gt;
 						</button>
 					</div>
 				</article>
 			</section>
-			<section id="s11" class="hidden">
+			<section id="s11">
 				<article>
 					<h3>Thank you for your time!</h3>
 					<h3>In the event that we need to know more about the specifics of your class, but do not want to take up more of your time, please upload a copy of the syllabus for your class. We will only use the information for this research study.</h3>
@@ -296,16 +296,16 @@
 					</form>
 					<h3>TODO: Fix or remove upload button</h3>
 					<div class="control_wrap">
-						<button id="b10">
+						<button id="b10" class="previous_button">
 							&lt;&lt;
 						</button>
-						<button id="n11">
+						<button id="n11" class="next_button">
 							&gt;&gt;
 						</button>
 					</div>
 				</article>
 			</section>
-			<section id="teacher_demographics" class="hidden">
+			<section id="teacher_demographics">
 				<article>
 					<h3>We'd like to know a bit more about you as a teacher. Please share with us a little bit about your background.</h3>
 					<hr />
@@ -428,16 +428,16 @@
 						<input type="radio" name="teacher_degree" value="Doctorate Degree">Doctorate degree (Ph.D. or Ed.D.)
 					</div>
 					<div class="control_wrap">
-						<button id="b11">
+						<button id="b11" class="previous_button">
 							&lt;&lt;
 						</button>
-						<button id="n12">
+						<button id="n12" class="next_button">
 							&gt;&gt;
 						</button>
 					</div>
 				</article>
 			</section>
-			<section id="student_demographics" class="hidden">
+			<section id="student_demographics">
 				<article>
 					<h3>We'd like to know a bit more about the students you are currently teaching.</h3>
 					<h3>If you are unsure of the exact answers to any of the following questions, please give your best estimate.</h3>
@@ -633,16 +633,16 @@
 						<input type="range" min="0" max="100" value="0" class="slider" name="major_pct">
 					</div>
 					<div class="control_wrap">
-						<button id="b12">
+						<button id="b12" class="previous_button">
 							&lt;&lt;
 						</button>
-						<button id="n13">
+						<button id="n13" class="next_button">
 							&gt;&gt;
 						</button>
 					</div>
 				</article>
 			</section>
-			<section id="sl" class="hidden">
+			<section id="sl">
 				<h1 style="text-align: center"> You have reached the end of the survey.<br />Thank you so much for taking the time to answer all our questions!<br />Please click on the "Finish" button to submit your responses.</h1>
 				<button id="finish" style="display:block;margin:auto">Finish</button>
 			</section>

@@ -118,6 +118,7 @@ button:hover, button:active{
 	background-color:#002145;
 	border: 1px solid #0055b7;
 	border-top: 2px solid #2e2d29;
+	cursor: pointer;
 }
 input[type="radio"]:hover{
 	background-color: #F9F6EF;
