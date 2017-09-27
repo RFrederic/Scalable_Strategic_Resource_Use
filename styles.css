@@ -29,10 +29,29 @@ div[class="control_wrap"]{
 	margin: auto;
 	width: 190px;
 }
+div[class="sum_wrap"]{
+	margin: 5px;
+	padding-bottom: 2px;
+	border-bottom: 1px solid #efefef;
+}
+div[class="total_wrap"]{
+	width: 50%;
+	margin: 5px;
+	padding-bottom: 2px;
+	border-bottom: 1px solid #efefef;
+	padding-top: 5px;
+	border-top: 1px solid #808080;
+}
 .title{
 	float: left;
 	width: 150px;
 	text-align: right;
+	padding-right: 10px;
+}
+.sum_title{
+	float: left;
+	width: 200px;
+	text-align: left;
 	padding-right: 10px;
 }
 .container{
@@ -102,4 +121,34 @@ button:hover, button:active{
 }
 input[type="radio"]:hover{
 	background-color: #F9F6EF;
+}
+input[class="sum"]{
+	width: 50px;
+	text-align: right;
+}
+.slider {
+	-webkit-appearance: none;
+	width: 50%;
+	height: 1px;
+	border-radius: 5px;   
+	background: #d3d3d3;
+	outline: none;
+	-webkit-transition: .2s;
+	transition: opacity .2s;
+}
+.slider::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	appearance: none;
+	width: 25px;
+	height: 25px;
+	border-radius: 50%; 
+	background: #8c1515;
+	cursor: pointer;
+}
+.slider::-moz-range-thumb {
+	width: 25px;
+	height: 25px;
+	border-radius: 50%;
+	background: #8c1515;
+	cursor: pointer;
 }

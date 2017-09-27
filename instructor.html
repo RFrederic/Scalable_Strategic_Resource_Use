@@ -42,9 +42,9 @@
 			<section id="s2" class="hidden">
 				<article>
 					<h3> What is the title of your class?</h3>
-					<div>
+					<p>
 						For example, STAT 250, PSYCH 200, etc. 
-					</div>
+					</p>
 					<input type="text" name="class_title">
 					<hr />
 					<h3> What subject are you teaching?</h3>
@@ -294,7 +294,7 @@
 						<input type="file" name="fileToUpload" id="fileToUpload">
 						<input type="submit" value="Upload" name="submit">
 					</form>
-					<h3>TODO: Fix file upload</h3>
+					<h3>TODO: Fix or remove upload button</h3>
 					<div class="control_wrap">
 						<button id="b10">
 							&lt;&lt;
@@ -305,7 +305,7 @@
 					</div>
 				</article>
 			</section>
-			<section id="teacher_demographics">
+			<section id="teacher_demographics" class="hidden">
 				<article>
 					<h3>We'd like to know a bit more about you as a teacher. Please share with us a little bit about your background.</h3>
 					<hr />
@@ -392,10 +392,259 @@
 					<div class="block_wrap">
 						<input type="checkbox" name="teaching_subject" value="Engineering">Engineering (including Computer Science)
 					</div>
+					<h3>How many years have you been teaching?<br />Please drag the slider to indicate the number of years.</h3>
+					<h3>TODO: Add JavaScript to display min, max, and current values</h3>
+					<div>
+						<label for="teaching_years" class="title">Number of Years:</label>
+						<input type="range" min="0" max="50" value="0" class="slider" name="teaching_years">
+					</div>
+					<hr />
+					<h3>How many years have you taught this specific class?</h3>
+					<div>
+						<label for="class_years" class="title">Number of Years:</label>
+						<input type="range" min="0" max="50" value="0" class="slider" name="class_years">
+					</div>
+					<hr />
+					<h3>In your own schooling, what is the highest degree you have received?</h3>
+					<div class="block_wrap">
+						<input type="radio" name="teacher_degree" value="High School">High school diploma or the equivalent
+					</div>
+					<div class="block_wrap">
+						<input type="radio" name="teacher_degree" value="Professional Diploma">Professional diploma (Trade, design, engineering, pharmacy or other professional schools)
+					</div>
+					<div class="block_wrap">
+						<input type="radio" name="teacher_degree" value="Associates Degree">Associate's degree (Community College degrees or the equivalent)
+					</div>
+					<div class="block_wrap">
+						<input type="radio" name="teacher_degree" value="Bachelors Degree">Bachelor's degree
+					</div>
+					<div class="block_wrap">
+						<input type="radio" name="teacher_degree" value="Masters Degree">Master's degree
+					</div>
+					<div class="block_wrap">
+						<input type="radio" name="teacher_degree" value="Professional Degree">Professional degree (MD, DDS, DVM, LLB, JD, DD)
+					</div>
+					<div class="block_wrap">
+						<input type="radio" name="teacher_degree" value="Doctorate Degree">Doctorate degree (Ph.D. or Ed.D.)
+					</div>
+					<div class="control_wrap">
+						<button id="b11">
+							&lt;&lt;
+						</button>
+						<button id="n12">
+							&gt;&gt;
+						</button>
+					</div>
+				</article>
+			</section>
+			<section id="student_demographics" class="hidden">
+				<article>
+					<h3>We'd like to know a bit more about the students you are currently teaching.</h3>
+					<h3>If you are unsure of the exact answers to any of the following questions, please give your best estimate.</h3>
+					<hr />
+					<h3>Approximately how many students in total do you expect to enroll in your class during the semester that the study is run? Please state the total number of students in all of the classes of yours that will be involved in the study.</h3>
+					<input type="text" name="num_students">
+					<hr />
+					<h3>What is the average age of students in your class?</h3>
+					<div>
+						<label for="avg_age" class="title">Average Age:</label>
+						<input type="range" min="16" max="26" value="16" class="slider" name="avg_age">
+					</div>
+					<hr />
+					<h3>What is the gender composition of your class? </h3>
+					<p>For example: Male: &nbsp;54%&nbsp; &nbsp;Female: &nbsp;46%<br />Note: Please enter numbers only into the boxes, the numbers should add up to 100.</p>
+					<div class="sum_wrap">
+						<label for="male_pct" class="sum_title">Male</label>
+						<input type="text" class="sum" name="male_pct">
+					</div>
+					<div class="sum_wrap">
+						<label for="female_pct" class="sum_title">Female</label>
+						<input type="text" class="sum" name="female_pct">
+					</div>
+					<div class="total_wrap">
+						<label for="total_gen" class="sum_title">Total</label>
+						<input type="text" class="sum" name="total_gen">
+					</div>
+					<hr />
+					<h3>What is the racial/ ethnic breakdown of the students in your class? </h3>
+					<p>For example, Black American&nbsp; &nbsp;10%;&nbsp; &nbsp;White/Caucasian&nbsp; &nbsp;60%;&nbsp; &nbsp;East Asian&nbsp; &nbsp;30% <br />Note: Please enter numbers only into the boxes, the numbers should add up to 100.</p>
+					<div class="sum_wrap">
+						<label for="white_pct" class="sum_title">White/Caucasian</label>
+						<input type="text" class="sum" name="white_pct">
+					</div>
+					<div class="sum_wrap">
+						<label for="black_pct" class="sum_title">African American</label>
+						<input type="text" class="sum" name="black_pct">
+					</div>
+					<div class="sum_wrap">
+						<label for="asian_pct" class="sum_title">Asian</label>
+						<input type="text" class="sum" name="asian_pct">
+					</div>
+					<div class="sum_wrap">
+						<label for="na_pct" class="sum_title">Native American</label>
+						<input type="text" class="sum" name="na_pct">
+					</div>
+					<div class="sum_wrap">
+						<label for="latino_pct" class="sum_title">Hispanic/ Latino/ Chicano/ Puerto Rican</label>
+						<input type="text" class="sum" name="latino_pct">
+					</div>
+					<div class="sum_wrap">
+						<label for="other_race_pct" class="sum_title">Other (including Pacific Islander)</label>
+						<input type="text" class="sum" name="other_race_pct">
+					</div>
+					<div class="total_wrap">
+						<label for="total_race" class="sum_title">Total</label>
+						<input type="text" class="sum" name="total_race">
+					</div>
+					<hr />
+					<h3>What is the breakdown of your students' class standings? </h3>
+					<p>For example, Freshman:&nbsp; &nbsp;30%;&nbsp; &nbsp;Sophomore:&nbsp; &nbsp;40%;&nbsp; &nbsp;Junior:&nbsp; &nbsp;20%;&nbsp; &nbsp;Senior:&nbsp; &nbsp;10%<br />Note: Please enter numbers only into the boxes, the numbers should add up to 100.</p>
+					<div class="sum_wrap">
+						<label for="freshman_pct" class="sum_title">Freshman&nbsp;/&nbsp;Year&nbsp;1</label>
+						<input type="text" class="sum" name="freshman_pct">
+					</div>
+					<div class="sum_wrap">
+						<label for="sophomore_pct" class="sum_title">Sophomore&nbsp;/&nbsp;Year&nbsp;2</label>
+						<input type="text" class="sum" name="sophomore_pct">
+					</div>
+					<div class="sum_wrap">
+						<label for="junior_pct" class="sum_title">Junior&nbsp;/&nbsp;Year&nbsp;3</label>
+						<input type="text" class="sum" name="junior_pct">
+					</div>
+					<div class="sum_wrap">
+						<label for="senior_pct" class="sum_title">Senior&nbsp;/&nbsp;Year&nbsp;4</label>
+						<input type="text" class="sum" name="senior_pct">
+					</div>
+					<div class="sum_wrap">
+						<label for="other_standing_pct" class="sum_title">Other</label>
+						<input type="text" class="sum" name="latino_pct">
+					</div>
+					<div class="total_wrap">
+						<label for="total_standing" class="sum_title">Total</label>
+						<input type="text" class="sum" name="total_standing">
+					</div>
+					<hr />
+					<h3>What kinds of subjects do your students typically major in? </h3>
+					<p>For example: Engineering:&nbsp; &nbsp;40%;&nbsp; &nbsp;Business:&nbsp; &nbsp;40%;&nbsp; &nbsp;Social Sciences:&nbsp; &nbsp;20%<br />Note: Please enter numbers only into the boxes, the numbers should add up to 100.</p>
+					<div class="sum_wrap">
+						<label for="humanities_pct" class="sum_title">Humanities</label>
+						<input type="text" class="sum" name="humanities_pct">
+					</div>
+					<div class="sum_wrap">
+						<label for="social_pct" class="sum_title">Social Sciences</label>
+						<input type="text" class="sum" name="social_pct">
+					</div>
+					<div class="sum_wrap">
+						<label for="natural_pct" class="sum_title">Natural Sciences</label>
+						<input type="text" class="sum" name="natural_pct">
+					</div>
+					<div class="sum_wrap">
+						<label for="business_pct" class="sum_title">Business</label>
+						<input type="text" class="sum" name="business_pct">
+					</div>
+					<div class="sum_wrap">
+						<label for="premed_pct" class="sum_title">Pre-Medicine / Nursing</label>
+						<input type="text" class="sum" name="premed_pct">
+					</div>
+					<div class="sum_wrap">
+						<label for="prelaw_pct" class="sum_title">Pre-Law</label>
+						<input type="text" class="sum" name="prelaw_pct">
+					</div>
+					<div class="sum_wrap">
+						<label for="eng_pct" class="sum_title">Engineering (including Computer Science)</label>
+						<input type="text" class="sum" name="eng_pct">
+					</div>
+					<div class="sum_wrap">
+						<label for="other_major_pct" class="sum_title">Other</label>
+						<input type="text" class="sum" name="other_major_pct">
+					</div>
+					<div class="total_wrap">
+						<label for="total_major" class="sum_title">Total</label>
+						<input type="text" class="sum" name="total_major">
+					</div>
+					<hr />
+					<h3>What is the average GPA (out of 4.0) of the students who enter your class?</h3>
+					<select name="GPA">
+						<option value="2.0 or lower">2.0 or lower</option>
+						<option value="2.1">2.1</option>
+						<option value="2.2">2.2</option>
+						<option value="2.3">2.3</option>
+						<option value="2.4">2.4</option>
+						<option value="2.5">2.5</option>
+						<option value="2.6">2.6</option>
+						<option value="2.7">2.7</option>
+						<option value="2.8">2.8</option>
+						<option value="2.9">2.9</option>
+						<option value="3.0">3.0</option>
+						<option value="3.1">3.1</option>
+						<option value="3.2">3.2</option>
+						<option value="3.3">3.3</option>
+						<option value="3.4">3.4</option>
+						<option value="3.5">3.5</option>
+						<option value="3.6">3.6</option>
+						<option value="3.7">3.7</option>
+						<option value="3.8">3.8</option>
+						<option value="3.9">3.9</option>
+						<option value="4.0">4.0</option>
+						<option value="do not wish to say">Do not wish to say</option>
+					</select>
+					<hr />
+					<h3>What is the proportion of <u>first generation college students</u> in your class?<br />Please drag the slider to indicate this proportion.</h3>
+					<div>
+						<label for="first_gen" class="title">Percentage of first gen. students:</label>
+						<input type="range" min="0" max="100" value="0" class="slider" name="first_gen">
+					</div>
+					<hr />
+					<h3>On average, how many semesters of ${q://QID12/ChoiceTextEntryValue} classes have your students taken prior to this class? </h3>
+					<div class="block_wrap">
+						<input type="radio" name="num_semester" value="0">0
+					</div>
+					<div class="block_wrap">
+						<input type="radio" name="num_semester" value="1">1
+					</div>
+					<div class="block_wrap">
+						<input type="radio" name="num_semester" value="2">2
+					</div>
+					<div class="block_wrap">
+						<input type="radio" name="num_semester" value="3">3
+					</div>
+					<div class="block_wrap">
+						<input type="radio" name="num_semester" value="4">4
+					</div>
+					<div class="block_wrap">
+						<input type="radio" name="num_semester" value="5">5
+					</div>
+					<div class="block_wrap">
+						<input type="radio" name="num_semester" value="6">6
+					</div>
+					<div class="block_wrap">
+						<input type="radio" name="num_semester" value="7">7
+					</div>
+					<div class="block_wrap">
+						<input type="radio" name="num_semester" value="8">8
+					</div>
+					<div class="block_wrap">
+						<input type="radio" name="num_semester" value="more than 8">more than 8
+					</div>
+					<hr />
+					<h3>What percentage of your students have already officially declared a college major?</h3>
+					<div>
+						<label for="major_pct" class="title">Percentage:</label>
+						<input type="range" min="0" max="100" value="0" class="slider" name="major_pct">
+					</div>
+					<div class="control_wrap">
+						<button id="b12">
+							&lt;&lt;
+						</button>
+						<button id="n13">
+							&gt;&gt;
+						</button>
+					</div>
 				</article>
 			</section>
 			<section id="sl" class="hidden">
-				<h1 style="text-align: center"> More content coming... </h1>
+				<h1 style="text-align: center"> You have reached the end of the survey.<br />Thank you so much for taking the time to answer all our questions!<br />Please click on the "Finish" button to submit your responses.</h1>
+				<button id="finish" style="display:block;margin:auto">Finish</button>
 			</section>
 		</div><!-- End of Container Div -->
 	</body>
