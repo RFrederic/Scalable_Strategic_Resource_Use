@@ -124,13 +124,13 @@
 					<h3> In the boxes below, please tell us: </h3>
 					<ol>
 						<li style="font-weight: bold"> <b> <i> What </i> each of your exam is called </b> (e.g., "Exam 3" or "Final Exam"), </li>
-						<li style="font-weight: bold"> <b> <i> When </i> each exam is scheduled</b>.</li>
+						<li style="font-weight: bold"> <b> <i> When </i> each exam is scheduled</b> (e.g., "Tuesday, May 5th, 2017").</li>
 					</ol>
 					<table id="exam_table"></table><!-- table content to be generated dynamically-->
 				</article>
 				<hr />
 				<article>
-					<h3> We would like to send exam reminders that instructors of [TODO: COURSE_CODE] would typically send to students before each exam.
+					<h3 id="course_code_message"> We would like to send exam reminders that instructors of COURSE_CODE would typically send to students before each exam.
 					</h3>
 					<p>
 						In some classes, for example, the instructors tend to say: "Your Exam 1 is coming up on Thursday, May 5th, 2017. We would like to remind you about your upcoming exam so that you can start preparing for it."
@@ -177,7 +177,92 @@
 					</ul>
 					<hr />
 					<h3>In the boxes below, please write down as many of the resources available to you that you can think of! The ideal should be between 10 to 16 resources.</h3>
-					<h1> TODO: Add block to collect available study resources.</h1>
+					<table id="list_of_rss">
+						<tr>
+							<th style="width: 80px"> Number</th>
+							<th> Name of Resource</th>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td contenteditable="true"></td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td contenteditable="true"></td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td contenteditable="true"></td>
+						</tr>
+						<tr>
+							<td>4</td>
+							<td contenteditable="true"></td>
+						</tr>
+						<tr>
+							<td>5</td>
+							<td contenteditable="true"></td>
+						</tr>
+						<tr>
+							<td>6</td>
+							<td contenteditable="true"></td>
+						</tr>
+						<tr>
+							<td>7</td>
+							<td contenteditable="true"></td>
+						</tr>
+						<tr>
+							<td>8</td>
+							<td contenteditable="true"></td>
+						</tr>
+						<tr>
+							<td>9</td>
+							<td contenteditable="true"></td>
+						</tr>
+						<tr>
+							<td>10</td>
+							<td contenteditable="true"></td>
+						</tr>
+						<tr>
+							<td>11</td>
+							<td contenteditable="true"></td>
+						</tr>
+						<tr>
+							<td>12</td>
+							<td contenteditable="true"></td>
+						</tr>
+						<tr>
+							<td>13</td>
+							<td contenteditable="true"></td>
+						</tr>
+						<tr>
+							<td>14</td>
+							<td contenteditable="true"></td>
+						</tr>
+						<tr>
+							<td>15</td>
+							<td contenteditable="true"></td>
+						</tr>
+						<tr>
+							<td>16</td>
+							<td contenteditable="true"></td>
+						</tr>
+						<tr>
+							<td>17</td>
+							<td contenteditable="true"></td>
+						</tr>
+						<tr>
+							<td>18</td>
+							<td contenteditable="true"></td>
+						</tr>
+						<tr>
+							<td>19</td>
+							<td contenteditable="true"></td>
+						</tr>
+						<tr>
+							<td>20</td>
+							<td contenteditable="true"></td>
+						</tr>
+					</table>
 					<div class="control_wrap">
 						<button id="b4" class="previous_button">
 							&lt;&lt;
@@ -234,10 +319,10 @@
 					<p>Planning example:<br />Wednesday, 3/18, 3pm - 5pm, Library: Work on practice exam questions from 1 past exam.<br />Friday 3/20, 1pm - 3pm, Home: Read lecture notes for 2 topics.</p>
 					<h3>Would you like to generate your own model example for the students in your class?</h3>
 					<div class="block_wrap">
-						<input type="radio" name="model_example" value="Yes">Yes, I would like to create my own example.
+						<input type="radio" name="model_study_plan" value="Yes">Yes, I would like to create my own example.
 					</div>
 					<div class="block_wrap">
-						<input type="radio" name="model_example" value="No">No, please use the example above.
+						<input type="radio" name="model_study_plan" value="No">No, please use the example above.
 					</div>
 					<div class="control_wrap">
 						<button id="b7" class="previous_button">

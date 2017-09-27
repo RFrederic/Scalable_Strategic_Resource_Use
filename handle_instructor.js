@@ -3,7 +3,7 @@ $(window).load(function(){
 	var sections = document.getElementsByTagName('section');
 	var next_buttons = document.getElementsByClassName('next_button');
 	var previous_buttons = document.getElementsByClassName('previous_button');
-
+	var placeholder = "COURSE_CODE";
 	// define handlers for button clicks
 	function handle_nextB_click(button_index){
 		sections[button_index].className = "hidden";
@@ -16,6 +16,12 @@ $(window).load(function(){
 			else{
 				check_syllabus.className = "normal";
 			}
+			var class_code = $('input[name=class_title]').val();
+			var message_div = document.getElementById('course_code_message');
+			var message = message_div.textContent;
+			message = message.replace(placeholder, class_code);
+			message_div.textContent = message;
+			placeholder = class_code;
 		}
 		if(button_index == 2){
 			var exam_tableDiv = document.getElementById('exam_table');
@@ -47,11 +53,35 @@ $(window).load(function(){
 				tr.appendChild(td2);
 			}
 		}
+		if(button_index == 5){
+			if($('input[name=model_example]:checked').val() == "No"){
+				sections[button_index+1].className = "hidden";
+				sections[button_index+2].className = "normal";
+			}
+		}
+		if(button_index == 7){
+			if($('input[name=model_study_plan]:checked').val() == "No"){
+				sections[button_index+1].className = "hidden";
+				sections[button_index+2].className = "normal";
+			}
+		}
 	}
 
 	function handle_previousB_click(button_index){
 		sections[button_index].className = "normal";
 		sections[button_index+1].className = "hidden";
+		if(button_index == 6){
+			if($('input[name=model_example]:checked').val() == "No"){
+				sections[button_index].className = "hidden";
+				sections[button_index-1].className = "normal";
+			}
+		}
+		if(button_index == 8){
+			if($('input[name=model_study_plan]:checked').val() == "No"){
+				sections[button_index].className = "hidden";
+				sections[button_index-1].className = "normal";
+			}
+		}
 	}
 
 	// initialize the page and setting up section display properties 
