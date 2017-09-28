@@ -177,7 +177,7 @@
 					</ul>
 					<hr />
 					<h3>In the boxes below, please write down as many of the resources available to you that you can think of! The ideal should be between 10 to 16 resources.</h3>
-					<table id="list_of_rss">
+					<table id="list_of_rss" style="margin-bottom: 20px">
 						<tr>
 							<th style="width: 80px"> Number</th>
 							<th> Name of Resource</th>
@@ -345,7 +345,32 @@
 					</h3>
 					<h3>Please use as many boxes as you need below to write down your own examples.</h3>
 					<p>Planning example:<br />Wednesday, 3/18, 3pm - 5pm, Library: Work on practice exam questions from 1 past exam.<br />Friday 3/20, 1pm - 3pm, Home: Read lecture notes for 2 topics.</p>
-					<h3>TODO: add block to collect instructor-generated example study plans.</h3>
+					<table id="list_study_plan" style="margin-bottom: 20px">
+						<tr>
+							<th style="width: 80px"> Number</th>
+							<th> Planning Example </th>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td contenteditable="true"></td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td contenteditable="true"></td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td contenteditable="true"></td>
+						</tr>
+						<tr>
+							<td>4</td>
+							<td contenteditable="true"></td>
+						</tr>
+						<tr>
+							<td>5</td>
+							<td contenteditable="true"></td>
+						</tr>
+					</table>
 					<div class="control_wrap">
 						<button id="b8" class="previous_button">
 							&lt;&lt;
@@ -376,11 +401,7 @@
 				<article>
 					<h3>Thank you for your time!</h3>
 					<h3>In the event that we need to know more about the specifics of your class, but do not want to take up more of your time, please upload a copy of the syllabus for your class. We will only use the information for this research study.</h3>
-					<form action="file_upload.php" method="post" enctype="multipart/form-data">Select file to upload:
-						<input type="file" name="fileToUpload" id="fileToUpload">
-						<input type="submit" value="Upload" name="submit">
-					</form>
-					<h3>TODO: Fix or remove upload button</h3>
+					<input type="file" name="fileToUpload" id="fileToUpload">
 					<div class="control_wrap">
 						<button id="b10" class="previous_button">
 							&lt;&lt;
@@ -479,16 +500,17 @@
 						<input type="checkbox" name="teaching_subject" value="Engineering">Engineering (including Computer Science)
 					</div>
 					<h3>How many years have you been teaching?<br />Please drag the slider to indicate the number of years.</h3>
-					<h3>TODO: Add JavaScript to display min, max, and current values</h3>
 					<div>
 						<label for="teaching_years" class="title">Number of Years:</label>
 						<input type="range" min="0" max="50" value="0" class="slider" name="teaching_years">
+						<div class="range_display">0 Years</div>
 					</div>
 					<hr />
 					<h3>How many years have you taught this specific class?</h3>
 					<div>
 						<label for="class_years" class="title">Number of Years:</label>
 						<input type="range" min="0" max="50" value="0" class="slider" name="class_years">
+						<div class="range_display">0 Years</div>
 					</div>
 					<hr />
 					<h3>In your own schooling, what is the highest degree you have received?</h3>
@@ -535,6 +557,7 @@
 					<div>
 						<label for="avg_age" class="title">Average Age:</label>
 						<input type="range" min="16" max="26" value="16" class="slider" name="avg_age">
+						<div class="range_display">0 Years</div>
 					</div>
 					<hr />
 					<h3>What is the gender composition of your class? </h3>
@@ -679,6 +702,7 @@
 					<div>
 						<label for="first_gen" class="title">Percentage of first gen. students:</label>
 						<input type="range" min="0" max="100" value="0" class="slider" name="first_gen">
+						<div class="range_display">0 %</div>
 					</div>
 					<hr />
 					<h3>On average, how many semesters of ${q://QID12/ChoiceTextEntryValue} classes have your students taken prior to this class? </h3>
@@ -717,6 +741,7 @@
 					<div>
 						<label for="major_pct" class="title">Percentage:</label>
 						<input type="range" min="0" max="100" value="0" class="slider" name="major_pct">
+						<div class="range_display">0 %</div>
 					</div>
 					<div class="control_wrap">
 						<button id="b12" class="previous_button">

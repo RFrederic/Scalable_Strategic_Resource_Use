@@ -4,6 +4,17 @@ $(window).load(function(){
 	var next_buttons = document.getElementsByClassName('next_button');
 	var previous_buttons = document.getElementsByClassName('previous_button');
 	var placeholder = "COURSE_CODE";
+	var range_sliders = document.getElementsByClassName('slider');
+	var range_displays = document.getElementsByClassName('range_display');
+
+	function handle_slider(slider_index){
+		if(slider_index < 3){
+			range_displays[slider_index].textContent = range_sliders[slider_index].value + " Years";
+		}
+		else{
+			range_displays[slider_index].textContent = range_sliders[slider_index].value + " %";
+		}
+	}
 	// define handlers for button clicks
 	function handle_nextB_click(button_index){
 		sections[button_index].className = "hidden";
@@ -106,6 +117,13 @@ $(window).load(function(){
 				previous_buttons[i].addEventListener('click', function(){
 					handle_previousB_click(i);
 			}, false);
+			})(i);
+		}
+		for (var i = 0; i < range_sliders.length; i++) {
+			(function (i){
+				range_sliders[i].addEventListener('change', function(){
+					handle_slider(i);
+				}, false);
 			})(i);
 		}
 	}

@@ -41,6 +41,11 @@ div[class="total_wrap"]{
 	padding-top: 5px;
 	border-top: 1px solid #808080;
 }
+div[class="range_display"]{
+	padding-left: 5px;
+	width:80px;
+	display: inline;
+}
 table{
 	width: 100%;
 	text-align: center;
