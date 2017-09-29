@@ -7,6 +7,15 @@ $(window).load(function(){
 	var range_sliders = document.getElementsByClassName('slider');
 	var range_displays = document.getElementsByClassName('range_display');
 
+	function nextSection(current_section_index){
+		sections[current_section_index].className="hidden";
+		sections[current_section_index+1].className="normal";
+	}
+	function skipNextSection(current_section_index){
+		sections[current_section_index+1].className="hidden";
+		sections[current_section_index+2].className="normal";
+	}
+
 	function handle_slider(slider_index){
 		if(slider_index < 3){
 			range_displays[slider_index].textContent = range_sliders[slider_index].value + " Years";
@@ -17,8 +26,42 @@ $(window).load(function(){
 	}
 	// define handlers for button clicks
 	function handle_nextB_click(button_index){
-		sections[button_index].className = "hidden";
-		sections[button_index+1].className = "normal";
+		/*
+		switch(button_index){
+			case 0:
+				if(!$('input[name=instructor_name]').val()){
+					alert("Please fill in your name!");
+				}
+				else if(!$('input[name=school_name]').val()){
+					alert('Please fill in your school name!');
+				}
+				else if(!$('input[name=study_semester]').val()){
+					alert('Please fill in your semester!');
+				}
+				else if(!$('input[name=date]').val()){
+					alert('Please fill in the date');
+				}
+				else{
+					nextSection(button_index);
+				}
+				break;
+			case 1:
+				if(!$('input[name=class_title]').val()){
+					alert('Please fill in the class title!');
+				}
+				else if(!$('input[name=class_subject]').val()){
+					alert('Please fill in the class subject!');
+				}
+				else if(!$('input[name=num_instructors]:checked').val()){
+					alert('Please select the number of other instructors teaching this course!');
+				}
+				else{
+					nextSection(button_index);
+				}
+			default:
+		}
+		*/
+		nextSection(button_index);
 		if(button_index == 1){
 			var check_syllabus = document.getElementById('syllabus_check');
 			if($('input[name=num_instructors]:checked').val() == "None"){
@@ -66,14 +109,12 @@ $(window).load(function(){
 		}
 		if(button_index == 5){
 			if($('input[name=model_example]:checked').val() == "No"){
-				sections[button_index+1].className = "hidden";
-				sections[button_index+2].className = "normal";
+				skipNextSection(button_index);
 			}
 		}
 		if(button_index == 7){
 			if($('input[name=model_study_plan]:checked').val() == "No"){
-				sections[button_index+1].className = "hidden";
-				sections[button_index+2].className = "normal";
+				skipNextSection(button_index);
 			}
 		}
 	}
