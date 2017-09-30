@@ -26,7 +26,6 @@ $(window).load(function(){
 	}
 	// define handlers for button clicks
 	function handle_nextB_click(button_index){
-		/*
 		switch(button_index){
 			case 0:
 				if(!$('input[name=instructor_name]').val()){
@@ -58,9 +57,22 @@ $(window).load(function(){
 				else{
 					nextSection(button_index);
 				}
+			case 2:
+				if (check_syllabus.className != "hidden"){
+					if (!$('input[name=same_syllabus]').val()){
+						alert('Please indicate if all instructors of this class use the same syllabus!');
+					}
+				}
+				else if(!$('input[name=num_exams]').val()){
+					alert('Please enter the number of exams in your class!');
+				}
+				else{
+					nextSection(button_index);
+				}
+			case 3:
+				
 			default:
 		}
-		*/
 		nextSection(button_index);
 		if(button_index == 1){
 			var check_syllabus = document.getElementById('syllabus_check');
