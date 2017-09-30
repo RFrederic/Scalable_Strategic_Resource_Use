@@ -55,6 +55,19 @@ $(window).load(function(){
 					alert('Please select the number of other instructors teaching this course!');
 				}
 				else{
+					var check_syllabus = document.getElementById('syllabus_check');
+					if($('input[name=num_instructors]:checked').val() == "None"){
+						check_syllabus.className = "hidden";
+					}
+					else{
+						check_syllabus.className = "normal";
+					}
+					var class_code = $('input[name=class_title]').val();
+					var message_div = document.getElementById('course_code_message');
+					var message = message_div.textContent;
+					message = message.replace(placeholder, class_code);
+					message_div.textContent = message;
+					placeholder = class_code;
 					nextSection(button_index);
 				}
 			case 2:
@@ -67,58 +80,46 @@ $(window).load(function(){
 					alert('Please enter the number of exams in your class!');
 				}
 				else{
+					var exam_tableDiv = document.getElementById('exam_table');
+					var exam_table = document.createElement("TABLE");
+					var exam_tableBody = document.createElement("TBODY");
+					exam_table.appendChild(exam_tableBody);
+					exam_tableDiv.appendChild(exam_table);
+					var num_exams = parseInt($('input[name=num_exams]').val(), 10);
+					$("#exam_table tr").remove();
+					var first_row = document.createElement("TR");
+					var name_head = document.createElement("TH");
+					var date_head = document.createElement("TH");
+					exam_tableBody.appendChild(first_row);
+					name_head.appendChild(document.createTextNode("exam name"));
+					date_head.appendChild(document.createTextNode("exam date"));
+					first_row.appendChild(name_head);
+					first_row.appendChild(date_head);
+					for (var i = 0; i < num_exams; i++) {
+						var tr = document.createElement("TR");
+						exam_tableBody.appendChild(tr);
+						var td1 = document.createElement("TD");
+						td1.appendChild(document.createTextNode("Click to edit exam "+(i+1)+"'s name"));
+						td1.contentEditable = "true";
+						tr.appendChild(td1);
+						var td2 = document.createElement("TD");
+						var date = document.createElement("INPUT");
+						date.setAttribute("type", "date");
+						td2.appendChild(date);
+						tr.appendChild(td2);
+					}
 					nextSection(button_index);
 				}
 			case 3:
-				
+				if (!$('textarea[name=sample_reminder]').val()){
+					alert('Please enter your own exam reminder in the textbox!');
+				}
+				else{
+					nextSection(button_index);
+				}
 			default:
 		}
 		nextSection(button_index);
-		if(button_index == 1){
-			var check_syllabus = document.getElementById('syllabus_check');
-			if($('input[name=num_instructors]:checked').val() == "None"){
-				check_syllabus.className = "hidden";
-			}
-			else{
-				check_syllabus.className = "normal";
-			}
-			var class_code = $('input[name=class_title]').val();
-			var message_div = document.getElementById('course_code_message');
-			var message = message_div.textContent;
-			message = message.replace(placeholder, class_code);
-			message_div.textContent = message;
-			placeholder = class_code;
-		}
-		if(button_index == 2){
-			var exam_tableDiv = document.getElementById('exam_table');
-			var exam_table = document.createElement("TABLE");
-			var exam_tableBody = document.createElement("TBODY");
-			exam_table.appendChild(exam_tableBody);
-			exam_tableDiv.appendChild(exam_table);
-			var num_exams = parseInt($('input[name=num_exams]').val(), 10);
-			$("#exam_table tr").remove();
-			var first_row = document.createElement("TR");
-			var name_head = document.createElement("TH");
-			var date_head = document.createElement("TH");
-			exam_tableBody.appendChild(first_row);
-			name_head.appendChild(document.createTextNode("exam name"));
-			date_head.appendChild(document.createTextNode("exam date"));
-			first_row.appendChild(name_head);
-			first_row.appendChild(date_head);
-			for (var i = 0; i < num_exams; i++) {
-				var tr = document.createElement("TR");
-				exam_tableBody.appendChild(tr);
-				var td1 = document.createElement("TD");
-				td1.appendChild(document.createTextNode("Click to edit exam "+(i+1)+"'s name"));
-				td1.contentEditable = "true";
-				tr.appendChild(td1);
-				var td2 = document.createElement("TD");
-				var date = document.createElement("INPUT");
-				date.setAttribute("type", "date");
-				td2.appendChild(date);
-				tr.appendChild(td2);
-			}
-		}
 		if(button_index == 5){
 			if($('input[name=model_example]:checked').val() == "No"){
 				skipNextSection(button_index);
