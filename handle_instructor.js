@@ -12,8 +12,40 @@ $(window).load(function(){
 		sections[current_section_index+1].className="normal";
 	}
 	function skipNextSection(current_section_index){
+		sections[current_section_index].className="hidden";
 		sections[current_section_index+1].className="hidden";
 		sections[current_section_index+2].className="normal";
+	}
+
+	function buildRssTable(){
+		var exam_tableDiv = document.getElementById('exam_table');
+		var exam_table = document.createElement("TABLE");
+		var exam_tableBody = document.createElement("TBODY");
+		exam_table.appendChild(exam_tableBody);
+		exam_tableDiv.appendChild(exam_table);
+		var num_exams = parseInt($('input[name=num_exams]').val(), 10);
+		$("#exam_table tr").remove();
+		var first_row = document.createElement("TR");
+		var name_head = document.createElement("TH");
+		var date_head = document.createElement("TH");
+		exam_tableBody.appendChild(first_row);
+		name_head.appendChild(document.createTextNode("exam name"));
+		date_head.appendChild(document.createTextNode("exam date"));
+		first_row.appendChild(name_head);
+		first_row.appendChild(date_head);
+		for (var i = 0; i < num_exams; i++) {
+			var tr = document.createElement("TR");
+			exam_tableBody.appendChild(tr);
+			var td1 = document.createElement("TD");
+			td1.appendChild(document.createTextNode("Click to edit exam "+(i+1)+"'s name"));
+			td1.contentEditable = "true";
+			tr.appendChild(td1);
+			var td2 = document.createElement("TD");
+			var date = document.createElement("INPUT");
+			date.setAttribute("type", "date");
+			td2.appendChild(date);
+			tr.appendChild(td2);
+		}
 	}
 
 	function handle_slider(slider_index){
@@ -35,10 +67,10 @@ $(window).load(function(){
 					alert('Please fill in your school name!');
 				}
 				else if(!$('input[name=study_semester]').val()){
-					alert('Please fill in your semester!');
+					alert('Please fill in the study semester!');
 				}
 				else if(!$('input[name=date]').val()){
-					alert('Please fill in the date');
+					alert('Please fill in the date!');
 				}
 				else{
 					nextSection(button_index);
@@ -70,46 +102,32 @@ $(window).load(function(){
 					placeholder = class_code;
 					nextSection(button_index);
 				}
+				break;
 			case 2:
-				if (check_syllabus.className != "hidden"){
-					if (!$('input[name=same_syllabus]').val()){
+				console.log(typeof $('input[name=num_exams]').val());
+				var check_syllabus = document.getElementById('syllabus_check');
+				if (check_syllabus.className == "hidden"){
+					if(!$('input[name=num_exams]').val()){
+						alert('Please enter the number of exams in your class!');
+					}
+					else{
+						buildRssTable();
+						nextSection(button_index);
+					}
+				}
+				else if(check_syllabus.className == "normal"){
+					if(!$('input[name=same_syllabus]:checked').val()){
 						alert('Please indicate if all instructors of this class use the same syllabus!');
 					}
-				}
-				else if(!$('input[name=num_exams]').val()){
-					alert('Please enter the number of exams in your class!');
-				}
-				else{
-					var exam_tableDiv = document.getElementById('exam_table');
-					var exam_table = document.createElement("TABLE");
-					var exam_tableBody = document.createElement("TBODY");
-					exam_table.appendChild(exam_tableBody);
-					exam_tableDiv.appendChild(exam_table);
-					var num_exams = parseInt($('input[name=num_exams]').val(), 10);
-					$("#exam_table tr").remove();
-					var first_row = document.createElement("TR");
-					var name_head = document.createElement("TH");
-					var date_head = document.createElement("TH");
-					exam_tableBody.appendChild(first_row);
-					name_head.appendChild(document.createTextNode("exam name"));
-					date_head.appendChild(document.createTextNode("exam date"));
-					first_row.appendChild(name_head);
-					first_row.appendChild(date_head);
-					for (var i = 0; i < num_exams; i++) {
-						var tr = document.createElement("TR");
-						exam_tableBody.appendChild(tr);
-						var td1 = document.createElement("TD");
-						td1.appendChild(document.createTextNode("Click to edit exam "+(i+1)+"'s name"));
-						td1.contentEditable = "true";
-						tr.appendChild(td1);
-						var td2 = document.createElement("TD");
-						var date = document.createElement("INPUT");
-						date.setAttribute("type", "date");
-						td2.appendChild(date);
-						tr.appendChild(td2);
+					else if(!$('input[name=num_exams]').val()){
+						alert('Please enter the number of exams in your class!');
 					}
-					nextSection(button_index);
+					else{
+						buildRssTable();
+						nextSection(button_index);
+					}
 				}
+				break;
 			case 3:
 				if (!$('textarea[name=sample_reminder]').val()){
 					alert('Please enter your own exam reminder in the textbox!');
@@ -117,18 +135,50 @@ $(window).load(function(){
 				else{
 					nextSection(button_index);
 				}
+				break;
+
+			//TODO: case 4
+			case 5:
+				if($('input[name=model_example]:checked').val() == "No"){
+					skipNextSection(button_index);
+				}
+				else if($('input[name=model_example]:checked').val() == "Yes"){
+					nextSection(button_index);
+				}
+				else{
+					alert('Please make a selection!');
+				}
+				break;
+			case 6:
+				if(!$('textarea[name=sample_example]').val()){
+					alert('Please enter your own model example in the textbox!');
+				}
+				else{
+					nextSection(button_index);
+				}
+				break;
+			case 7:
+				if($('input[name=model_study_plan]:checked').val() == "No"){
+					skipNextSection(button_index);
+				}
+				else if($('input[name=model_study_plan]:checked').val() == "Yes"){
+					nextSection(button_index);
+				}
+				else{
+					alert('Please make a selection!');
+				}
+				break;
+			//TODO: case 8
+			case 9:
+				if(!$('textarea[name=incentive]').val()){
+					alert('Please enter extra credit information in the textarea!');
+				}
+				else{
+					nextSection(button_index);
+				}
+				break;
 			default:
-		}
-		nextSection(button_index);
-		if(button_index == 5){
-			if($('input[name=model_example]:checked').val() == "No"){
-				skipNextSection(button_index);
-			}
-		}
-		if(button_index == 7){
-			if($('input[name=model_study_plan]:checked').val() == "No"){
-				skipNextSection(button_index);
-			}
+				nextSection(button_index);
 		}
 	}
 
