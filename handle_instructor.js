@@ -6,6 +6,7 @@ $(window).load(function(){
 	var placeholder = "COURSE_CODE";
 	var range_sliders = document.getElementsByClassName('slider');
 	var range_displays = document.getElementsByClassName('range_display');
+	var web_data = {};
 
 	function nextSection(current_section_index){
 		sections[current_section_index].className="hidden";
@@ -73,6 +74,11 @@ $(window).load(function(){
 					alert('Please fill in the date!');
 				}
 				else{
+					web_data.instructor_name = $('input[name=instructor_name]').val();
+					web_data.school_name = $('input[name=school_name]').val();
+					web_data.study_semester = $('input[name=study_semester]').val();
+					web_data.survey_date = $('input[name=date]').val();
+					console.log(web_data);
 					nextSection(button_index);
 				}
 				break;
@@ -100,11 +106,14 @@ $(window).load(function(){
 					message = message.replace(placeholder, class_code);
 					message_div.textContent = message;
 					placeholder = class_code;
+					web_data.class_title = $('input[name=class_title]').val();
+					web_data.class_subject = $('input[name=class_subject]').val();
+					web_data.num_instructors = $('input[name=num_instructors]:checked').val();
+					console.log(web_data);
 					nextSection(button_index);
 				}
 				break;
 			case 2:
-				console.log(typeof $('input[name=num_exams]').val());
 				var check_syllabus = document.getElementById('syllabus_check');
 				if (check_syllabus.className == "hidden"){
 					if(!$('input[name=num_exams]').val()){
@@ -112,6 +121,8 @@ $(window).load(function(){
 					}
 					else{
 						buildRssTable();
+						web_data.num_exams = $('input[name=num_exams]').val();
+						console.log(web_data);
 						nextSection(button_index);
 					}
 				}
@@ -124,6 +135,9 @@ $(window).load(function(){
 					}
 					else{
 						buildRssTable();
+						web_data.num_exams = $('input[name=num_exams]').val();
+						web_data.same_syllabus = $('input[name=same_syllabus]:checked').val();
+						console.log(web_data);
 						nextSection(button_index);
 					}
 				}
@@ -201,6 +215,7 @@ $(window).load(function(){
 
 	// initialize the page and setting up section display properties 
 	// as well as event listeners for button clicks
+	// Consider simplifying code with JQuerry
 	function initialize(){
 		for (var i = 0; i < sections.length; i++) {
 			sections[i].className = "hidden"; 
