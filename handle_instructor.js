@@ -147,16 +147,23 @@ $(window).load(function(){
 					alert('Please enter your own exam reminder in the textbox!');
 				}
 				else{
+					web_data.sample_reminder = $('textarea[name=sample_reminder]').val();
+					//TODO record list of exam info
+					console.log(web_data);
 					nextSection(button_index);
 				}
 				break;
-
 			//TODO: case 4
+			// record list of resources
 			case 5:
 				if($('input[name=model_example]:checked').val() == "No"){
+					web_data.model_example = $('input[name=model_example]:checked').val();
+					console.log(web_data);
 					skipNextSection(button_index);
 				}
 				else if($('input[name=model_example]:checked').val() == "Yes"){
+					web_data.model_example = $('input[name=model_example]:checked').val();
+					console.log(web_data);
 					nextSection(button_index);
 				}
 				else{
@@ -168,14 +175,20 @@ $(window).load(function(){
 					alert('Please enter your own model example in the textbox!');
 				}
 				else{
+					web_data.sample_example = $('input[name=sample_example]').val();
+					console.log(web_data);
 					nextSection(button_index);
 				}
 				break;
 			case 7:
 				if($('input[name=model_study_plan]:checked').val() == "No"){
+					web_data.model_study_plan = $('input[name=model_study_plan]:checked').val();
+					console.log(web_data);
 					skipNextSection(button_index);
 				}
 				else if($('input[name=model_study_plan]:checked').val() == "Yes"){
+					web_data.model_study_plan = $('input[name=model_study_plan]:checked').val();
+					console.log(web_data);
 					nextSection(button_index);
 				}
 				else{
@@ -188,6 +201,8 @@ $(window).load(function(){
 					alert('Please enter extra credit information in the textarea!');
 				}
 				else{
+					web_data.incentive = $('input[name=incentive]').val();
+					console.log(web_data);
 					nextSection(button_index);
 				}
 				break;
