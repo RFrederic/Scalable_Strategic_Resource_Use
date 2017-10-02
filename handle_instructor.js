@@ -175,7 +175,7 @@ $(window).load(function(){
 					alert('Please enter your own model example in the textbox!');
 				}
 				else{
-					web_data.sample_example = $('input[name=sample_example]').val();
+					web_data.sample_example = $('textarea[name=sample_example]').val();
 					console.log(web_data);
 					nextSection(button_index);
 				}
@@ -201,7 +201,7 @@ $(window).load(function(){
 					alert('Please enter extra credit information in the textarea!');
 				}
 				else{
-					web_data.incentive = $('input[name=incentive]').val();
+					web_data.incentive = $('textarea[name=incentive]').val();
 					console.log(web_data);
 					nextSection(button_index);
 				}
