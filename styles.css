@@ -1,3 +1,7 @@
+hr{
+	margin-top: 30px;
+	margin-bottom: 40px;
+}
 body {
 	background-color: #F4F4F4;
 	font-size:110%;
@@ -63,8 +67,12 @@ th{
 }
 tr{
 	border-top: 1px solid #999;
+	border-bottom: 1px solid #999;
 }
-tr:hover{
+td{
+	border-color: #A9A9A9;
+}
+td:hover{
 	background-color: #c3e6e5;
 }
 .title{

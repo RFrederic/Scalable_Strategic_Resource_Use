@@ -1,5 +1,7 @@
 $(window).load(function(){
 	// get sections and buttons
+	var NUMBER_OF_RSS_REQUIRED = 10;
+	var NUMBER_OF_PlAN_REQUIRED = 2;
 	var sections = document.getElementsByTagName('section');
 	var next_buttons = document.getElementsByClassName('next_button');
 	var previous_buttons = document.getElementsByClassName('previous_button');
@@ -57,6 +59,52 @@ $(window).load(function(){
 			range_displays[slider_index].textContent = range_sliders[slider_index].value + " %";
 		}
 	}
+
+	function isExamTableOk(){
+		table_content = $("#exam_table tr");
+		for (i=1; i<table_content.length;i++){
+			if (table_content[i].cells[0].innerText == "Click to edit exam "+(i)+"'s name"){
+				alert('Please give exam ' + i + " a name!");
+				return false;
+			}
+			web_data["exam"+i+"name"] = table_content[i].cells[0].innerText;
+			if(table_content[i].cells[1].children[0].value == ""){
+				alert('Please fill in exam ' + i + "'s date!");
+				return false;
+			}
+			web_data["exam"+i+"date"] = table_content[i].cells[1].children[0].value;
+		}
+		return true;
+	}
+
+	function isRssTableOk(){
+		table_content = $("#list_of_rss tr");
+		for (i=1; i<table_content.length;i++){
+			if(table_content[i].cells[1].innerText == "" && i <= NUMBER_OF_RSS_REQUIRED){
+				alert('Please fill in the name for study resource #' + i +"!");
+				return false;
+			}
+			if(table_content[i].cells[1].innerText != ""){
+				web_data["rss"+i] = table_content[i].cells[1].innerText;
+			}
+		}
+		return true;
+	}
+
+	function isStudyPlanOk(){
+		table_content = $("#list_study_plan tr");
+		for (i=1; i < table_content.length; i++){
+			if(table_content[i].cells[1].innerText == "" && i <= NUMBER_OF_PlAN_REQUIRED){
+				alert('Please fill in sample study plan #'+i+"!");
+				return false;
+			}
+			if(table_content[i].cells[1].innerText != ""){
+				web_data["study_plan"+i] = table_content[i].cells[1].innerText;
+			}
+		}
+		return true;
+	}
+
 	// define handlers for button clicks
 	function handle_nextB_click(button_index){
 		switch(button_index){
@@ -146,15 +194,22 @@ $(window).load(function(){
 				if (!$('textarea[name=sample_reminder]').val()){
 					alert('Please enter your own exam reminder in the textbox!');
 				}
+				else if(!isExamTableOk()){
+				}
 				else{
 					web_data.sample_reminder = $('textarea[name=sample_reminder]').val();
-					//TODO record list of exam info
 					console.log(web_data);
 					nextSection(button_index);
 				}
 				break;
-			//TODO: case 4
-			// record list of resources
+			case 4:
+				if (!isRssTableOk()){
+				}
+				else{
+					console.log(web_data);
+					nextSection(button_index);
+				}
+				break;
 			case 5:
 				if($('input[name=model_example]:checked').val() == "No"){
 					web_data.model_example = $('input[name=model_example]:checked').val();
@@ -195,7 +250,14 @@ $(window).load(function(){
 					alert('Please make a selection!');
 				}
 				break;
-			//TODO: case 8
+			case 8:
+				if(!isStudyPlanOk()){
+				}
+				else{
+					console.log(web_data);
+					nextSection(button_index);
+				}
+				break;
 			case 9:
 				if(!$('textarea[name=incentive]').val()){
 					alert('Please enter extra credit information in the textarea!');
@@ -207,6 +269,7 @@ $(window).load(function(){
 				}
 				break;
 			default:
+				console.log(button_index);
 				nextSection(button_index);
 		}
 	}
