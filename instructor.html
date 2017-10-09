@@ -435,22 +435,22 @@
 						<input type="checkbox" name="teacher_race" value="White">White/ Caucasian
 					</div>
 					<div class="block_wrap">
-						<input type="checkbox" name="teacher_race" value="BlackA">Black American
+						<input type="checkbox" name="teacher_race" value="Black American">Black American
 					</div>
 					<div class="block_wrap">
-						<input type="checkbox" name="teacher_race" value="BlackNA">Black non-American (e.g. African, West Indian, etc.)
+						<input type="checkbox" name="teacher_race" value="Black non-American">Black non-American (e.g. African, West Indian, etc.)
 					</div>
 					<div class="block_wrap">
-						<input type="checkbox" name="teacher_race" value="EAsian">East Asian (Chinese, Japanese, Korean, etc.)
+						<input type="checkbox" name="teacher_race" value="East Asian">East Asian (Chinese, Japanese, Korean, etc.)
 					</div>
 					<div class="block_wrap">
-						<input type="checkbox" name="teacher_race" value="SEAsian">South East Asian (Cambodian, Malaysian, Vietnamese, etc.)
+						<input type="checkbox" name="teacher_race" value="South East Asian">South East Asian (Cambodian, Malaysian, Vietnamese, etc.)
 					</div>
 					<div class="block_wrap">
-						<input type="checkbox" name="teacher_race" value="SAsian">South Asian (Indian, Pakistani, etc.)
+						<input type="checkbox" name="teacher_race" value="South Asian">South Asian (Indian, Pakistani, etc.)
 					</div>
 					<div class="block_wrap">
-						<input type="checkbox" name="teacher_race" value="PI">Pacific Islander (Filipino, Samoan, etc.)
+						<input type="checkbox" name="teacher_race" value="Pacific Islander">Pacific Islander (Filipino, Samoan, etc.)
 					</div>
 					<div class="block_wrap">
 						<input type="checkbox" name="teacher_race" value="Latino">Hispanic/ Latino/ Chicano/ Puerto Rican
@@ -626,7 +626,7 @@
 					</div>
 					<div class="sum_wrap">
 						<label for="other_standing_pct" class="sum_title">Other</label>
-						<input type="text" class="sum" name="latino_pct">
+						<input type="text" class="sum" name="other_standing_pct">
 					</div>
 					<div class="total_wrap">
 						<label for="total_standing" class="sum_title">Total</label>
@@ -673,7 +673,7 @@
 					</div>
 					<hr />
 					<h3>What is the average GPA (out of 4.0) of the students who enter your class?</h3>
-					<select name="GPA">
+					<select name="GPA" id="GPA">
 						<option value="2.0 or lower">2.0 or lower</option>
 						<option value="2.1">2.1</option>
 						<option value="2.2">2.2</option>
@@ -705,7 +705,7 @@
 						<div class="range_display">0 %</div>
 					</div>
 					<hr />
-					<h3>On average, how many semesters of ${q://QID12/ChoiceTextEntryValue} classes have your students taken prior to this class? </h3>
+					<h3 id="subject_matter_message">On average, how many semesters of SUBJECT_MATTER classes have your students taken prior to this class? </h3>
 					<div class="block_wrap">
 						<input type="radio" name="num_semester" value="0">0
 					</div>

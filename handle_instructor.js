@@ -6,6 +6,7 @@ $(window).load(function(){
 	var next_buttons = document.getElementsByClassName('next_button');
 	var previous_buttons = document.getElementsByClassName('previous_button');
 	var placeholder = "COURSE_CODE";
+	var placeholder2 = "SUBJECT_MATTER";
 	var range_sliders = document.getElementsByClassName('slider');
 	var range_displays = document.getElementsByClassName('range_display');
 	var web_data = {};
@@ -149,11 +150,17 @@ $(window).load(function(){
 						check_syllabus.className = "normal";
 					}
 					var class_code = $('input[name=class_title]').val();
+					var subject_matter = $('input[name=class_subject]').val();
 					var message_div = document.getElementById('course_code_message');
+					var message_div2 = document.getElementById('subject_matter_message');
 					var message = message_div.textContent;
+					var message2 = message_div2.textContent;
 					message = message.replace(placeholder, class_code);
 					message_div.textContent = message;
 					placeholder = class_code;
+					message2 = message2.replace(placeholder2, subject_matter);
+					message_div2.textContent = message2;
+					placeholder2 = subject_matter;
 					web_data.class_title = $('input[name=class_title]').val();
 					web_data.class_subject = $('input[name=class_subject]').val();
 					web_data.num_instructors = $('input[name=num_instructors]:checked').val();
@@ -264,6 +271,142 @@ $(window).load(function(){
 				}
 				else{
 					web_data.incentive = $('textarea[name=incentive]').val();
+					console.log(web_data);
+					nextSection(button_index);
+				}
+				break;
+			case 10:
+				console.log($('input[name=fileToUpload]').val());
+				console.log(web_data);
+				nextSection(button_index);
+				break;
+			case 11:
+				if(!$('input[name=teacher_gender]:checked').val()){
+					alert('Please select your gender!');
+				}
+				else if(!$('input[name=teacher_age]').val()){
+					alert('Please fill in your age!');
+				}
+				else if(!$('input[name=teacher_race]:checked').val()){
+					alert('Please check at least one ethnicity that apply!');
+				}
+				else if(!$('input[name=school_type]:checked').val()){
+					alert('Please select the type of school in which you are teaching!');
+				}
+				else if(!$('input[name=teaching_subject]:checked').val()){
+					alert('Please check at least one subject that you teach!');
+				}
+				else if(!$('input[name=teaching_years]').val()){
+					alert('Please indicate the number of years you have been teaching!');
+				}
+				else if(!$('input[name=class_years]').val()){
+					alert('Please indicate the number of years you have been teaching this particular class!');
+				}
+				else if(!$('input[name=teacher_degree]:checked').val()){
+					alert('Please select your highest degree you have received!');
+				}
+				else{
+					web_data.teacher_gender = $('input[name=teacher_gender]:checked').val();
+					web_data.teacher_age = $('input[name=teacher_age]').val();
+					web_data.teacher_race = [];
+					for (var i = 0; i < $('input[name=teacher_race]:checked').length; i++) {
+						web_data.teacher_race.push($('input[name=teacher_race]:checked')[i].value);
+					}
+					web_data.school_type = $('input[name=school_type]:checked').val();
+					web_data.teaching_subject = [];
+					for (var i = 0; i < $('input[name=teaching_subject]:checked').length; i++) {
+						web_data.teaching_subject.push($('input[name=teaching_subject]:checked')[i].value); 
+					}
+					web_data.teaching_years = $('input[name=teaching_years]').val();
+					web_data.class_years = $('input[name=class_years]').val();
+					web_data.teacher_degree = $('input[name=teacher_degree]:checked').val();
+					console.log(web_data);
+					nextSection(button_index);
+				}
+				break;
+			case 12:
+				if(!$('input[name=num_students]').val()){
+					alert('Please indicate the number of students in your class!');
+				}
+				else if(!$('input[name=avg_age]').val()){
+					alert('Please indicate the average age of your students in this class!');
+				}
+				else if(!$('input[name=male_pct]').val() || 
+					!$('input[name=female_pct]').val() || 
+					!$('input[name=total_gen]').val()){
+					alert('Please indicate the gender percentages in your class!');
+				}
+				else if(!$('input[name=white_pct]').val() || 
+					!$('input[name=black_pct]').val() || 
+					!$('input[name=asian_pct]').val() ||
+					!$('input[name=na_pct]').val() ||
+					!$('input[name=latino_pct]').val() ||
+					!$('input[name=other_race_pct]').val() ||
+					!$('input[name=total_race]').val()){
+					alert('Please indicate the race percentages in your class!');
+				}
+				else if(!$('input[name=freshman_pct]').val() ||
+					!$('input[name=sophomore_pct]').val() ||
+					!$('input[name=junior_pct]').val() ||
+					!$('input[name=senior_pct]').val() ||
+					!$('input[name=other_standing_pct]').val() ||
+					!$('input[name=total_standing]').val()){
+					alert('Please indicate the standing percentages in your class!');
+				}
+				else if(!$('input[name=humanities_pct]').val() ||
+					!$('input[name=social_pct]').val() ||
+					!$('input[name=natural_pct]').val() ||
+					!$('input[name=business_pct]').val() ||
+					!$('input[name=premed_pct]').val() ||
+					!$('input[name=prelaw_pct]').val() ||
+					!$('input[name=eng_pct]').val() ||
+					!$('input[name=other_major_pct]').val() ||
+					!$('input[name=total_major]').val()){
+					alert('Please indicate the major percentages in your class!');
+				}
+				//else if(!$('select[name=GPA]:selected').text()){
+					//alert('Please select the average incoming GPA of your class!');
+				//}
+				else if(!$('input[name=first_gen]').val()){
+					alert('Please indicate the percentage of first generation students in your class!');
+				}
+				else if(!$('input[name=num_semester]:checked').val()){
+					alert('Please select the aveage number of semesters your students have spent taking classes in ' +subject_matter+"!");
+				}
+				else if(!$('input[name=major_pct]').val()){
+					alert('Please indicate the percentage of students who have already declared a major!');
+				}
+				else{
+					web_data.num_students = $('input[name=num_students]').val();
+					web_data.avg_age = $('input[name=avg_age]').val();
+					web_data.male_pct = $('input[name=male_pct]').val();
+					web_data.female_pct = $('input[name=female_pct]').val();
+					web_data.total_gen = $('input[name=total_gen]').val();
+					web_data.white_pct = $('input[name=white_pct]').val();
+					web_data.black_pct = $('input[name=black_pct]').val();
+					web_data.asian_pct = $('input[name=asian_pct]').val();
+					web_data.na_pct = $('input[name=na_pct]').val();
+					web_data.latino_pct = $('input[name=latino_pct]').val();
+					web_data.other_race_pct = $('input[name=other_race_pct]').val();
+					web_data.total_race = $('input[name=total_race]').val();
+					web_data.freshman_pct = $('input[name=freshman_pct]').val();
+					web_data.sophomore_pct = $('input[name=sophomore_pct]').val();
+					web_data.junior_pct = $('input[name=junior_pct]').val();
+					web_data.senior_pct = $('input[name=senior_pct]').val();
+					web_data.total_standing = $('input[name=total_standing]').val();
+					web_data.humanities_pct = $('input[name=humanities_pct]').val();
+					web_data.social_pct = $('input[name=social_pct]').val();
+					web_data.natural_pct = $('input[name=natural_pct]').val();
+					web_data.business_pct = $('input[name=business_pct]').val();
+					web_data.premed_pct = $('input[name=premed_pct]').val();
+					web_data.prelaw_pct = $('input[name=prelaw_pct]').val();
+					web_data.eng_pct = $('input[name=eng_pct]').val();
+					web_data.other_major_pct = $('input[name=other_major_pct]').val();
+					web_data.total_major = $('input[name=total_major]').val();
+					web_data.GPA = $('#GPA').find(":selected").text();
+					web_data.first_gen = $('input[name=first_gen]').val();
+					web_data.num_semester = $('input[name=num_semester]:checked').val();
+					web_data.major_pct = $('input[name=major_pct]').val();
 					console.log(web_data);
 					nextSection(button_index);
 				}
