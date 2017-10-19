@@ -10,17 +10,22 @@ $(window).load(function(){
 	var range_sliders = document.getElementsByClassName('slider');
 	var range_displays = document.getElementsByClassName('range_display');
 	var web_data = {};
+	var finish_button = document.getElementById('finish');
 
+	// Hide current and display next block
 	function nextSection(current_section_index){
 		sections[current_section_index].className="hidden";
 		sections[current_section_index+1].className="normal";
 	}
+
+	// Hide current and display block indexed at [current+2]
 	function skipNextSection(current_section_index){
 		sections[current_section_index].className="hidden";
 		sections[current_section_index+1].className="hidden";
 		sections[current_section_index+2].className="normal";
 	}
 
+	// Construct and render the rss table
 	function buildRssTable(){
 		var exam_tableDiv = document.getElementById('exam_table');
 		var exam_table = document.createElement("TABLE");
@@ -52,6 +57,7 @@ $(window).load(function(){
 		}
 	}
 
+	// Listener for range sliders'(up to index 3) value change
 	function handle_slider(slider_index){
 		if(slider_index < 3){
 			range_displays[slider_index].textContent = range_sliders[slider_index].value + " Years";
@@ -61,6 +67,7 @@ $(window).load(function(){
 		}
 	}
 
+	// Check if exam table has been filled in
 	function isExamTableOk(){
 		table_content = $("#exam_table tr");
 		for (i=1; i<table_content.length;i++){
@@ -78,6 +85,7 @@ $(window).load(function(){
 		return true;
 	}
 
+	// Check if Rss table has been filled in
 	function isRssTableOk(){
 		table_content = $("#list_of_rss tr");
 		for (i=1; i<table_content.length;i++){
@@ -92,6 +100,7 @@ $(window).load(function(){
 		return true;
 	}
 
+	// Check if list of study plans has been filled in
 	function isStudyPlanOk(){
 		table_content = $("#list_study_plan tr");
 		for (i=1; i < table_content.length; i++){
@@ -106,7 +115,8 @@ $(window).load(function(){
 		return true;
 	}
 
-	// define handlers for button clicks
+	// Lisener for Next buttons
+	// Each case index corresponds to one specific button
 	function handle_nextB_click(button_index){
 		switch(button_index){
 			case 0:
@@ -277,8 +287,15 @@ $(window).load(function(){
 				break;
 			case 10:
 				console.log($('input[name=fileToUpload]').val());
-				console.log(web_data);
-				nextSection(button_index);
+				if(!$('input[name=fileToUpload]').val()){
+					alert('Please select to upload your current class syllabus!');
+				}
+				else{
+					upload_syllabus();
+					web_data.syllabus_name = $('input[name=fileToUpload]').val();
+					console.log(web_data);
+					nextSection(button_index);
+				}
 				break;
 			case 11:
 				if(!$('input[name=teacher_gender]:checked').val()){
@@ -417,6 +434,7 @@ $(window).load(function(){
 		}
 	}
 
+	// Listener for Previous buttons
 	function handle_previousB_click(button_index){
 		sections[button_index].className = "normal";
 		sections[button_index+1].className = "hidden";
@@ -434,7 +452,28 @@ $(window).load(function(){
 		}
 	}
 
-	// initialize the page and setting up section display properties 
+	// Listener for the Finish button
+	function handle_finish(){
+		// submit recorded data to the server
+		try{
+			$.post("https://web.stanford.edu/~fren/cgi-bin/handle_data.php",
+				{data:JSON.stringify(web_data)});
+		} catch(err){
+      	console.log(err);
+      }
+	}
+
+	function upload_syllabus(){
+		// submit selected syllabus to be stored on server
+		try{
+			$.post("https://web.stanford.edu/~fren/cgi-bin/handle_upload.php",
+				{data:TODO_file});
+		} catch(err){
+      	console.log(err);
+      }
+	}
+
+	// Initialize the page and setting up section display properties 
 	// as well as event listeners for button clicks
 	// Consider simplifying code with JQuerry
 	function initialize(){
@@ -444,6 +483,7 @@ $(window).load(function(){
 		// display the first section
 		sections[0].className = "normal";
 		// using closure to make sure all buttons are properly set up
+		// For all Next buttons
 		for (var i = 0; i < next_buttons.length; i++) {
 			(function (i){
 				next_buttons[i].addEventListener('click', function(){
@@ -451,7 +491,7 @@ $(window).load(function(){
 				}, false);
 			})(i);
 		}
-
+		// For all previous buttons
 		for (var i = 0; i < previous_buttons.length; i++) {
 			(function (i){
 				previous_buttons[i].addEventListener('click', function(){
@@ -459,6 +499,7 @@ $(window).load(function(){
 			}, false);
 			})(i);
 		}
+		// For all range sliders
 		for (var i = 0; i < range_sliders.length; i++) {
 			(function (i){
 				range_sliders[i].addEventListener('change', function(){
@@ -466,6 +507,11 @@ $(window).load(function(){
 				}, false);
 			})(i);
 		}
+		// Setup Finish button to submit recorded data
+		finish_button.addEventListener('click', function(){
+			handle_finish();
+			alert('Thank you for submitting your response! All data has been recorded and you can now close this page.');
+		}, false);
 	}
 
 	initialize();
