@@ -291,7 +291,7 @@ $(window).load(function(){
 					alert('Please select to upload your current class syllabus!');
 				}
 				else{
-					upload_syllabus();
+					//upload_syllabus($('input[name=fileToUpload]').val());
 					web_data.syllabus_name = $('input[name=fileToUpload]').val();
 					console.log(web_data);
 					nextSection(button_index);
@@ -463,11 +463,11 @@ $(window).load(function(){
       }
 	}
 
-	function upload_syllabus(){
+	function upload_syllabus(file){
 		// submit selected syllabus to be stored on server
 		try{
 			$.post("https://web.stanford.edu/~fren/cgi-bin/handle_upload.php",
-				{data:TODO_file});
+				{data:file});
 		} catch(err){
       	console.log(err);
       }
