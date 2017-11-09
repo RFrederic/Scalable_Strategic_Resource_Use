@@ -1,5 +1,6 @@
 $(window).load(function(){
 	var dataUrl = "http://web.stanford.edu/~fren/SSRU/Processed_data/Test1.json";
+	var data = [];
 	function ajaxCall(){
     return $.ajax({
       url: dataUrl,
@@ -12,5 +13,7 @@ $(window).load(function(){
     }).fail(function(){
       alert("An error occured calling ajax!");
     });
-  console.log(Object.keys(data).length);
+  console.log(data);
+  var display = document.getElementById("data_display");
+  display.innerText = JSON.stringify(data);
 })
